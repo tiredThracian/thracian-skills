@@ -1,5 +1,5 @@
 ---
-name: engineering-eli5
+name: eli5
 description: Executive-level engineering & R&D simplification skill for Senior Directors, R&D Managers, and Innovation Leaders. Explains complex engineering concepts, academic papers, code snippets, or one-sentence ideas for Grant Proposals (--grant), Executive Board Pitches (--pitch), and Director Briefings (--executive) without losing technical credibility. Activate whenever the user asks for an engineering ELI5, grant concept simplification, technical pitch translation, code explanation for executives, or one-sentence idea expansion.
 ---
 
@@ -87,4 +87,4 @@ This skill automatically detects and adapts to your input format:
 ## 📚 Framework References & Templates
 
 For complete prompt engineering templates, DARPA Heilmeier questions, NABC matrices, and CO-STAR frameworks, refer to:
-[EXECUTIVE_ENGINEERING_FRAMEWORK.md](file:///skills/engineering-eli5/references/EXECUTIVE_ENGINEERING_FRAMEWORK.md)
+[EXECUTIVE_ENGINEERING_FRAMEWORK.md](file:///skills/eli5/references/EXECUTIVE_ENGINEERING_FRAMEWORK.md)

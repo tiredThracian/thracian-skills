@@ -12,7 +12,7 @@
 ```text
 thracian-skills/
 ├── skills/
-│   ├── engineering-eli5/          <-- Executive Engineering & Grant ELI5 Skill
+│   ├── eli5/                      <-- Executive Engineering & Grant ELI5 Skill
 │   │   ├── SKILL.md
 │   │   └── references/
 │   │       └── EXECUTIVE_ENGINEERING_FRAMEWORK.md
@@ -33,7 +33,7 @@ thracian-skills/
 
 | Skill Name | Description | Path |
 | :--- | :--- | :--- |
-| **`engineering-eli5`** | Executive-level engineering simplification skill for Senior Directors, R&D Managers, and Innovation Leaders. Translates complex papers, code snippets, or one-sentence ideas for **Grant Proposals** (`--grant`), **Executive Board Pitches** (`--pitch`), and **C-Suite Briefings** (`--executive`). | [`skills/engineering-eli5/SKILL.md`](file:///skills/engineering-eli5/SKILL.md) |
+| **`eli5`** | Executive-level engineering simplification skill for Senior Directors, R&D Managers, and Innovation Leaders. Translates complex papers, code snippets, or one-sentence ideas for **Grant Proposals** (`--grant`), **Executive Board Pitches** (`--pitch`), and **C-Suite Briefings** (`--executive`). | [`skills/eli5/SKILL.md`](file:///skills/eli5/SKILL.md) |
 | **`gemini-spark`** | Advanced Playwright automation engine for Google Gemini Spark (multi-turn context, multi-account support, CDP parallel execution, verbatim responses, batch deletion, workspace file exports). | [`skills/gemini-spark/SKILL.md`](file:///skills/gemini-spark/SKILL.md) |
 
 ---
@@ -53,9 +53,9 @@ cd thracian-skills
     ```cmd
     setup.bat
     ```
-*   **Install a SINGLE Skill (e.g., `engineering-eli5` or `gemini-spark`)**:
+*   **Install a SINGLE Skill (e.g., `eli5` or `gemini-spark`)**:
     ```cmd
-    setup.bat engineering-eli5
+    setup.bat eli5
     setup.bat gemini-spark
     ```
 *   **List All Available Skills**:
@@ -71,7 +71,7 @@ To install only a specific skill manually, copy its folder from `skills/<skill_n
 
 ```powershell
 # Copy Executive Engineering ELI5 skill
-Copy-Item -Path "skills/engineering-eli5" -Destination "$env:USERPROFILE\.gemini\config\skills\engineering-eli5" -Recurse -Force
+Copy-Item -Path "skills/eli5" -Destination "$env:USERPROFILE\.gemini\config\skills\eli5" -Recurse -Force
 
 # Copy Gemini Spark skill
 Copy-Item -Path "skills/gemini-spark" -Destination "$env:USERPROFILE\.gemini\config\skills\gemini-spark" -Recurse -Force
