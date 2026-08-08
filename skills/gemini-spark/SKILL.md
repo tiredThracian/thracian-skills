@@ -14,9 +14,35 @@ The automation is implemented via a Playwright script located at:
 
 The script runs Chrome in headless mode using the user's local Chrome installation. This ensures session state (cookies, login) is preserved and prevents bot-detection blocks.
 
-## Conversation Context & How to Run a Query
+## Coordinating Agent Decision Rule: Context Continuation vs. Fresh Instance
 
-By default, **every query automatically continues the active Spark conversation**, preserving context across multiple turns.
+Before executing a query, the **coordinating agent MUST evaluate the task context and explicitly decide** whether to continue an existing conversation or start a fresh instance:
+
+### 1. When to Start a NEW Fresh Conversation Thread (`--new`)
+Use the `--new` flag when:
+* **Unrelated Task or New Topic:** The query introduces a new research subject, project, or topic unrelated to prior conversation turns.
+* **Context Pollution Prevention:** The previous conversation history contains lengthy output, irrelevant context, or old data that might distract or pollute Gemini Spark's reasoning.
+* **Clean Slate Verification:** Independent evaluation or clean-slate verification of a prompt is needed.
+
+```bash
+node C:\Users\ibrah\.gemini\config\skills\gemini-spark\scripts\index.js --new --json "Start fresh research on autonomous drone navigation"
+```
+
+### 2. When to CONTINUE an Existing Conversation Thread (`--continue <index_or_id>` or Default)
+Continue the conversation (via default active thread continuation or explicit `--continue <id_or_index>`) when:
+* **Direct Follow-Up Query:** Asking for clarification, formatting changes, expansion, or refinement of Gemini Spark's previous response.
+* **Multi-Step Iteration:** Building a multi-turn analysis sequentially (e.g., Turn 1: Overview ➔ Turn 2: Technical breakdown ➔ Turn 3: Risk assessment).
+* **Referencing Prior Output:** The request explicitly relies on context, code, or data established in an earlier turn.
+
+```bash
+# Continue active thread context:
+node C:\Users\ibrah\.gemini\config\skills\gemini-spark\scripts\index.js --json "Now expand on point 2 in your previous answer"
+
+# Switch to and continue a specific historical thread:
+node C:\Users\ibrah\.gemini\config\skills\gemini-spark\scripts\index.js --continue eaa2f9ac5d9ddc74 --json "Update the grant proposal summary"
+```
+
+## CLI Syntax & Execution Commands
 
 To interact with Gemini Spark, run the script:
 
