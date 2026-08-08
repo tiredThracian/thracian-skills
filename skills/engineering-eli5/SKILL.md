@@ -1,20 +1,40 @@
 ---
 name: engineering-eli5
-description: Executive-level engineering & R&D simplification skill for Senior Directors, R&D Managers, and Innovation Leaders. Explains complex engineering concepts, system architectures, and R&D projects for Grant Proposals (--grant), Executive Board Pitches (--pitch), and Director Briefings (--executive) without losing technical credibility or degrading into childish babytalk. Activate whenever the user asks for an engineering ELI5, grant concept simplification, technical pitch translation, or executive engineering explanation.
+description: Executive-level engineering & R&D simplification skill for Senior Directors, R&D Managers, and Innovation Leaders. Explains complex engineering concepts, academic papers, code snippets, or one-sentence ideas for Grant Proposals (--grant), Executive Board Pitches (--pitch), and Director Briefings (--executive) without losing technical credibility. Activate whenever the user asks for an engineering ELI5, grant concept simplification, technical pitch translation, code explanation for executives, or one-sentence idea expansion.
 ---
 
 # Executive Engineering ELI5 & Pitch Translation Skill
 
-Use this skill to translate complex R&D engineering concepts, system architectures, hardware/software specifications, and technical innovation ideas into clear, high-impact explanations tailored for **Grant Applications**, **Executive Board Pitches**, and **Stakeholder Communication**.
+Use this skill to translate complex R&D engineering concepts, academic papers, code snippets, hardware/software specs, or raw one-sentence ideas into clear, high-impact explanations tailored for **Grant Applications**, **Executive Board Pitches**, and **C-Suite Stakeholder Communication**.
 
 ---
 
 ## 🎯 Target Persona & Use Cases
 
 Designed specifically for **Senior Engineering Directors, CTOs, and R&D Managers** who need to:
-1. Quickly understand and communicate complex project concepts across unfamiliar engineering domains.
-2. Formulate clear, compelling concept summaries for **Grant Proposals** (e.g. TÜBİTAK, EU Horizon Europe, IraSME, NSF, SBIR).
+1. Quickly understand and communicate complex concepts across unfamiliar engineering domains.
+2. Turn raw ideas, papers, or code into clear, compelling concept summaries for **Grant Proposals** (e.g. TÜBİTAK, EU Horizon Europe, IraSME, NSF, SBIR).
 3. Pitch R&D ideas to **C-Suite Executives, Board Members, Investors, and General Audiences** without losing technical authority.
+
+---
+
+## 🧩 Universal Input Adapters (Paper vs. One-Sentence Idea vs. Code)
+
+This skill automatically detects and adapts to your input format:
+
+### 📄 Adapter 1: Technical & Academic Papers (PDFs, Abstracts, ArXiv, Research Specs)
+*   **Extraction Focus:** Identifies the core research gap, technical innovation, baseline metrics vs. new results, and TRL progression.
+*   **Translation:** Maps complex equations, mathematical algorithms, and experimental setups into a high-level operational model.
+
+### 💡 Adapter 2: One-Sentence Ideas & Raw Hypotheses
+*(e.g., "What if we used optical ring resonators for hardware encryption?" or "Using thermal imaging for defect detection in solar panels")*
+*   **Conceptual Expansion:** Automatically infers the underlying engineering domain, the core problem it solves, state-of-the-art limitations, and market value.
+*   **Structuring:** Builds a complete Executive Briefing, Grant Concept, or Investor Pitch directly from a single sentence or rough idea.
+
+### 💻 Adapter 3: Code Snippets, Algorithms & Architecture Specs
+*(e.g., Python/C++ code, CUDA kernels, Verilog/VHDL, system configs, pipeline scripts)*
+*   **Logic & Dataflow Extraction:** Analyzes what the code does, inputs/outputs, compute/latency bottlenecks, and operational role.
+*   **Executive Mapping:** Translates the code logic into an operational business metaphor, skipping line-by-line syntax to focus on what the software achieves.
 
 ---
 

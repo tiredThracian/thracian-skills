@@ -22,6 +22,7 @@ if not exist "%GLOBAL_SKILLS_DIR%" mkdir "%GLOBAL_SKILLS_DIR%"
 set "TARGET_SKILL=%~1"
 
 if /i "%TARGET_SKILL%"=="list" goto :ListSkills
+if /i "%TARGET_SKILL%"=="all" goto :InstallAll
 if "%TARGET_SKILL%"=="" goto :InstallAll
 goto :InstallSingle
 

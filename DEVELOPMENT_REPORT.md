@@ -7,8 +7,7 @@ Bu rapor, Google Antigravity için tasarlanan **Thracian Skills** deposunda yap�
 ## 1. Mimari Yapı: Thracian Skills Koleksiyonu (Multi-Skill Monorepo)
 Proje, modüler ve genel amaçlı bir **Thracian Skills** koleksiyonu halinde yapılandırılmıştır:
 *   **Klasör Yapısı:** Tüm yetenekler `skills/` dizini altında bağımsız klasörler halinde barındırılır:
-    *   `skills/engineering-eli5/`: Üst Düzey Mühendislik & Hibet/Yatırım Sunum Yeteneği.
-    *   `skills/eli5/`: Genel basitleştirilmiş açıklama ve benzetim yeteneği.
+    *   `skills/engineering-eli5/`: Üst Düzey Mühendislik & Hibe/Yatırım Sunum Yeteneği.
     *   `skills/gemini-spark/`: Gemini Spark Playwright otomasyon motoru.
 *   **Esnek Kurulum Aracı (`setup.bat`):**
     *   `setup.bat` veya `setup.bat all`: Depodaki tüm yetenekleri otomatik kurar.
@@ -18,7 +17,11 @@ Proje, modüler ve genel amaçlı bir **Thracian Skills** koleksiyonu halinde ya
 ---
 
 ## 2. Üst Düzey Mühendislik ELI5 Yeteneği (`skills/engineering-eli5`)
-*   **Yönetici ve Ar-Ge Direktörü Persona Odaklı:** Karmaşık mühendislik ve Ar-Ge projelerini teknik değerini yitirmeden Yönetim Kurulu, Hibe Değerlendirme Komiteleri ve Genel İzleyici kitlesine sunma altyapısı.
+*   **Yönetici ve Ar-Ge Direktörü Persona Odaklı:** Karmaşık mühendislik projelerini, makaleleri, kod parçalarını veya tek cümlelik fikirleri teknik değerini yitirmeden Yönetim Kurulu, Hibe Değerlendirme Komiteleri ve Genel İzleyici kitlesine sunma altyapısı.
+*   **Evrensel Girdileri İşleme (Universal Input Adapters):**
+    1.  **Makaleler ve Raporlar:** Araştırma boşluğu, teknik yenilik ve TRL seviyesini ayıklar.
+    2.  **Tek Cümlelik Fikirler:** Konuyu otomatik genişletip hibe veya yatırım sunumuna dönüştürür.
+    3.  **Kod Parçaları:** Kod mantığını iş ve operasyon benzetimine dönüştürür.
 *   **Üç Farklı Çalıştırma Modu:**
     1.  **`--executive` / `--director` (Varsayılan):** CO-STAR Çerçevesi ile Sezgisel Operasyonel Benzetim ➔ Mimari Darboğaz & Çözüm 📊 Stratejik ve Finansal ROI.
     2.  **`--grant` (Hibe ve Başvuru Modu):** DARPA Heilmeier Catechism + RISEN Çerçevesi ile Hedefler ➔ Mevcut Teknolojik Kısıtlar ➔ Teknik Yenilik 📈 TRL İlerleme Yolu (örn. TRL 3 ➔ TRL 6) 📊 Karşılaştırmalı Metrik Tablosu 🛡️ Risk Azaltma ve Ekonomik Etki.
@@ -27,13 +30,7 @@ Proje, modüler ve genel amaçlı bir **Thracian Skills** koleksiyonu halinde ya
 
 ---
 
-## 3. Genel ELI5 Yeteneği (`skills/eli5`)
-*   **Derin Araştırma ve Sentez:** Cognitive Load Theory (CLT), Gentner'in Structure-Mapping Theory (SMT) ve Feynman Tekniği sentezi (`skills/eli5/references/ELI5_RESEARCH_GUIDE.md`).
-*   **Çalıştırma Modları:** `--child` (Ages 5-8), `--beginner` (Lise seviyesi), `--progressive` (3 seviyeli derinlik) ve `--analogy-only`.
-
----
-
-## 4. Gemini Spark Yeteneği Özellikleri (`skills/gemini-spark`)
+## 3. Gemini Spark Yeteneği Özellikleri (`skills/gemini-spark`)
 *   **Çoklu Hesap Desteği (`--account`):** Profil izoleli çalışma (`work`, `personal`, `research`).
 *   **CDP Paralel Sekme Desteği (`--cdp`):** Eşzamanlı paralel sekmeler.
 *   **Birebir Yanıt Modu (`verbatim`):** Yanıtların tam kopyası.
