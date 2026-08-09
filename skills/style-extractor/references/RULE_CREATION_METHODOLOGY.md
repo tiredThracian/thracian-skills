@@ -1,117 +1,91 @@
-# Comprehensive Enterprise Rule Creation Methodology & Architecture Guide
+# Rule Pattern Discovery & Extraction Meta-Methodology
 
-Derived from production defense software engineering standards in `D:\Work\Projekts\aselsan-know-how-transferi`, this document details the complete methodology for creating deterministic, bulletproof Antigravity workspace rules (`.gemini/config/rules/*.md` and `.agent/rules/*.md`).
+This guide defines the meta-methodology for analyzing manually created rules or sample documents to discover, extract, and formulate new reusable workspace rules (`.gemini/config/rules/*.md` or `.agent/rules/*.md`) without hardcoding project-specific details.
 
 ---
 
-## 1. Core Rule File Architecture & Metadata
+## 🎯 Architectural Goal
 
-Every rule file MUST begin with clean YAML metadata and a clear normative title:
+The objective of rule pattern discovery is to analyze an author's or organization's manually written rules/samples and identify **underlying structural patterns, boundary constraints, and terminology preferences**, elevating them into clean, general-purpose RFC 2119 rules.
+
+```text
+               ┌────────────────────────────────────────────────────────┐
+               │    INPUT: Manually Created Rules & Sample Documents    │
+               └───────────────────────────┬────────────────────────────┘
+                                           │
+                ┌──────────────────────────┴──────────────────────────┐
+                ▼                                                     ▼
+   [PATTERN RECOGNITION & ANALYSIS]                  [GENERALIZED RULE FORMULATION]
+   - Scan for Absolute Constraints                   - Convert to RFC 2119 Mandates
+   - Detect Anti-Patterns & Prohibitions             - Build Terminology Mapping Tables
+   - Identify Formatting Signatures                  - Formulate Contrast (Do/Don't) Examples
+   - Extract Verification Criteria                   - Generate Standard Rule Files
+```
+
+---
+
+## 🔍 5 Core Rule Patterns & How to Discover Them
+
+When inspecting manually created rules or sample documents, look for these 5 foundational pattern types:
+
+### Pattern 1: Absolute Boundary Directives (Hard Constraints)
+*   **How to Discover:** Search manual samples for non-negotiable directives, strict placement requirements, or workflow limits (e.g., *"always save in X"*, *"never generate Y unless explicitly requested"*, *"must match Z 100%"*).
+*   **Rule Formulation Method:** Translate into high-priority RFC 2119 imperatives (**MUST** / **ZORUNLUDUR** or **MUST NOT** / **YASAKTIR**). State the exact constraint and why it matters.
+
+### Pattern 2: Terminology Preference & Synonym Normalization Maps
+*   **How to Discover:** Compare the author's chosen terms against generic LLM defaults or literal translations. Identify terms the author consistently replaces, bans, or prefers.
+*   **Rule Formulation Method:** Create a 2-column or 3-column **Terminology Matrix** mapping prohibited terms directly to canonical approved equivalents, along with contextual rationales.
+
+| Prohibited / Banned Term | Mandatory Canonical Replacement | Context / Rationale |
+| :--- | :--- | :--- |
+| `[Prohibited Cliché or Ambiguous Term]` | `[Author's Approved Term]` | Prevents ambiguity or artificial phrasing. |
+
+### Pattern 3: Negative Constraints & Anti-Pattern Flags
+*   **How to Discover:** Look for explicit prohibitions against default LLM tendencies (e.g. over-explanation, parenthetical translations, fluff intros, unrequested git actions, static line numbers).
+*   **Rule Formulation Method:** Formulate explicit **MUST NOT** / **NEVER** / **YASAKTIR** negative directives paired with concrete "Do's and Don'ts" (Yanlış vs. Doğru) contrast examples.
+
+### Pattern 4: Structural & Formatting Signatures
+*   **How to Discover:** Analyze document layouts for recurring markup tags, specific table column layouts, header capitalization rules, paragraph density caps, or custom annotation syntax.
+*   **Rule Formulation Method:** Document the exact syntax pattern and header/paragraph rules that the AI must replicate in all generated text.
+
+### Pattern 5: Ground Truth & Verification Requirements
+*   **How to Discover:** Search for instructions requiring the AI agent to verify claims against authoritative primary sources (e.g. source code, database schemas, hardware specs) rather than relying on memory or templates.
+*   **Rule Formulation Method:** Include a mandatory **Verification Directives** section enforcing empirical cross-checking before declaring compliance.
+
+---
+
+## 📜 Standard Rule File Format
+
+When pattern discovery is complete, package the extracted rules into a standardized Antigravity rule file:
 
 ```markdown
 ---
-description: [Clear, single-sentence summary of the rule's domain and mandate]
+description: [Single-sentence summary of the rule's mandate]
 trigger: always_on  # Options: always_on | manual
 ---
 
-# [Normative Rule Title in Title Case or Türkçe Başlık Formatı]
+# [Rule Domain Title]
 
-[Short introductory paragraph stating the scope and mandatory nature of the rule.]
-```
+[Brief statement of scope and operational intent.]
 
----
-
-## 2. The 7 Enterprise Rule Categories
-
-Rules created by `style-extractor` are categorized into 7 structural domains:
-
-```text
-                                 ┌───────────────────────────────────────────────┐
-                                 │     ENTERPRISE RULE CREATION METHODOLOGY      │
-                                 └───────────────────────┬───────────────────────┘
-                                                         │
-   ┌─────────────────┬───────────────────┼───────────────┴───┬───────────────────┬───────────────────┐
-   ▼                 ▼                   ▼                   ▼                   ▼                   ▼
-┌──────────────┐ ┌──────────────┐ ┌──────────────┐   ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-│  Ground      │ │ Terminology  │ │ Document     │   │ Caption &    │    │ Scripting &  │    │ Project-     │
-│  Truth Code  │ │ & Language   │ │ Naming &     │   │ Compiler     │    │ Escaping     │    │ Specific     │
-│  Reference   │ │ Regulations  │ │ Hierarchy    │   │ Syntax       │    │ Safety       │    │ System Rules │
-└──────────────┘ └──────────────┘ └──────────────┘   └──────────────┘    └──────────────┘    └──────────────┘
-```
-
-### 1. Ground Truth Code Reference Check (`codebase_reference_check.md`)
-- **Single Source of Truth:** Source code (C++, C#, Java, Python) is the primary reference. AI agents **MUST NOT** rely solely on templates or memory.
-- **Verification Directives:** Function signatures, member variables, database tables/columns (`Int64`, `DateTime`), protocol headers, and log messages **MUST** be verified directly from source code files.
-- **Semantics & Body Verification:** Agents **MUST NOT** infer function behavior from function names alone. Function bodies **MUST** be inspected (mutexes locked, sub-functions called, logs written).
-
-### 2. Terminology & Language Regulations (`documentation_language.md`)
-- **No Parenthetical Translations:** Inline translations like `Header (Başlık)` or `warmup (ısınma)` are **FORBIDDEN** (okunabilirliği düşürür).
-- **Prohibited Words Matrix:** Explicit bans on forced translations or generic metaphoric terms (*"tampon/tamponlama" ➔ use "buffer/bufferlama"*, *"orkestre etmek" ➔ use "yönetmek"*, *"dijital" ➔ use "sayısal"*, *"gösterici" ➔ use "pointer"*).
-- **No Line Numbers in Links:** Links to code files **MUST NOT** include static line numbers (`#L123`) which drift over time.
-
-### 3. Document Naming, Placement & Hierarchy (`document_naming_and_placement.md`)
-- **Naming Pattern:** `[TYPE]_[PROJECT].docx` in upper case (e.g. `YTET_LENS.docx`, `YGO_IRIS.docx`). Status suffixes (`_Nihai`, `_v1.0`) are **FORBIDDEN**.
-- **Placement:** All output documents **MUST** be saved in `[Project]/docs/`. Root-level placement is forbidden.
-- **Header Alignment:** `#` depth MUST equal header numbers (`# 1.`, `## 1.1`, `### 1.1.1`). H1 headers MUST be ALL CAPS.
-
-### 4. Caption & Compiler Syntax (`captions.md`)
-- **Table Captions:** Mandatory `%% table_caption: [Description]` on the line directly preceding Markdown tables.
-- **Image Captions:** Mandatory `%% static_image: [Description]` tag for images.
-- **Mermaid Captions:** Mandatory `%% caption: [Description]` inside the first line of Mermaid blocks, with special character escaping (`""`) and mindmap shape rules.
-- **No Horizontal Dividers:** Raw horizontal rules (`---`) in body markdown are **FORBIDDEN** (breaks Pandoc Word compilers).
-
-### 5. Scripting & Escaping Safety (`xml_html_writing_safety.md`)
-- **XML/HTML String Safety:** In Python generators, raw `<Tag>` strings are **FORBIDDEN** to prevent rich-text parser corruption (`[[ORCA_RICH_MD...]]`). Escaping placeholders (`LT`/`GT`) **MUST** be used and replaced prior to file output.
-
-### 6. Project & System-Specific Rules (`ytet_project_rules.md`)
-- **Specific Term Bans:** Generic terms (*"uygulama"*, *"program"*, *"yazılım"*) are **FORBIDDEN**. The official system configuration unit name (e.g., **`İRİS`**) **MUST** be used.
-- **4-Column Test Tables:** Mandatory `| Adım No | Adım Tanımı | Beklenen Sonuç | Doğrulanan Gereksinim(ler) |` table structure.
-- **No Parameter Bullet Items:** Parameter blocks must be unbulleted bold paragraphs (`**ID:** YTET-01-01`).
-
-### 7. Document Content Conformance (`document_content_conformance.md`)
-- **Traceability & Completeness:** Every requirement or item in normative templates MUST be satisfied or explicitly justified as `Uygulanamaz` with evidence. Silent omission is **FORBIDDEN**.
-- **Cross-Document Terminology Alignment:** Unit names, classes, interfaces, and architecture diagrams MUST match 100% identically across document sets (YGO, YTT, YTET, YTER, YUO).
-
----
-
-## 3. RFC 2119 Normative Imperatives Summary
-
-Rules created by `style-extractor` MUST encode directives using bold normative keywords:
-- **Turkish:** **ZORUNLUDUR** (MUST), **YASAKTIR** (MUST NOT / FORBIDDEN), **TERCİH EDİLMELİDİR** (SHOULD), **ASLA** (NEVER).
-- **English:** **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, **NEVER**.
-
----
-
-## 4. Synthesis Output Pattern
-
-Rules generated for `.gemini/config/rules/` or `.agent/rules/` follow this structure:
-
-```markdown
----
-description: [Single-sentence mandate summary]
-trigger: always_on
----
-
-# [Domain/Rule Title]
-
-## 1. Directives & Mandates
-- AI agents **ZORUNLUDUR / MUST** [directive].
-- AI agents **YASAKTIR / MUST NOT** [prohibited action].
+## 1. Mandatory Directives
+- AI agents **MUST / ZORUNLUDUR** [core directive].
+- AI agents **MUST NOT / YASAKTIR** [prohibited action].
 
 ## 2. Terminology & Prohibited Words Matrix
 
-| Yasaklı Terim (Prohibited) | Doğru / Zorunlu Karşılık (Mandatory) | Rationale |
+| Prohibited Term | Approved Equivalent | Rationale |
 | :--- | :--- | :--- |
-| `[banned_1]` | `[approved_1]` | [Reason] |
+| `[banned_term]` | `[approved_term]` | [Why banned] |
 
-## 3. Do's & Don'ts Examples
+## 3. Do's and Don'ts Contrast Examples
 
-### ❌ Yanlış Kullanım (Incorrect):
-> [Bad example]
+### ❌ Incorrect (Yanlış Kullanım):
+> [Example demonstrating the anti-pattern]
 
-### ✅ Doğru Kullanım (Correct):
-> [Good example]
+### ✅ Correct (Doğru Kullanım):
+> [Example demonstrating the compliant pattern]
 
 ## 4. Ground Truth Verification Requirement
-AI agents **MUST** verify all claims directly against source code files or database schemas.
+AI agents **MUST** verify all generated claims against primary source files before completing the task.
 ```
