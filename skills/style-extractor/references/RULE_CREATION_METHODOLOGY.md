@@ -1,12 +1,12 @@
-# Rule Creation Methodology & Architecture Guide
+# Comprehensive Enterprise Rule Creation Methodology & Architecture Guide
 
-Derived from enterprise defense and software engineering rule specifications (e.g. `aselsan-know-how-transferi`), this document outlines the exact methodology for creating deterministic, bulletproof Antigravity workspace rules (`.gemini/config/rules/*.md` and `.agent/rules/*.md`).
+Derived from production defense software engineering standards in `D:\Work\Projekts\aselsan-know-how-transferi`, this document details the complete methodology for creating deterministic, bulletproof Antigravity workspace rules (`.gemini/config/rules/*.md` and `.agent/rules/*.md`).
 
 ---
 
 ## 1. Core Rule File Architecture & Metadata
 
-Every rule file MUST begin with standard YAML frontmatter defining its description and trigger status, followed by a clear, normative title:
+Every rule file MUST begin with clean YAML metadata and a clear normative title:
 
 ```markdown
 ---
@@ -14,59 +14,104 @@ description: [Clear, single-sentence summary of the rule's domain and mandate]
 trigger: always_on  # Options: always_on | manual
 ---
 
-# [Rule Title in Title Case or Turkish Başlık Formatı]
+# [Normative Rule Title in Title Case or Türkçe Başlık Formatı]
 
 [Short introductory paragraph stating the scope and mandatory nature of the rule.]
 ```
 
 ---
 
-## 2. The 5 Structural Elements of Effective Rules
+## 2. The 7 Enterprise Rule Categories
 
-To eliminate AI ambiguity and guarantee compliance, rules synthesized by `style-extractor` MUST incorporate five structural elements:
+Rules created by `style-extractor` are categorized into 7 structural domains:
 
-### Element 1: RFC 2119 Normative Imperatives
-Use bold, capitalized normative keywords in English or Turkish to establish priority:
-- **English:** **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, **NEVER**.
-- **Turkish:** **ZORUNLUDUR**, **YASAKTIR**, **TERCİH EDİLMELİDİR**, **ASLA**.
-
-### Element 2: Do's and Don'ts Contrast Examples (Yanlış vs. Doğru Kullanımlar)
-Every terminology or formatting rule MUST include paired contrasting examples showing exact incorrect patterns alongside correct implementations:
-
-```markdown
-### ❌ Yanlış Kullanımlar (Incorrect):
-- Sinyal işleme ısınma (warmup) algoritması. (Parantez içi çeviri okunabilirliği düşürür)
-- Sıkıştırma motoru / Oturum motoru. (Mecazi "engine/motor" kullanımı yapaydır)
-
-### ✅ Doğru Kullanımlar (Correct):
-- Sinyal işleme ısınma algoritması.
-- Sıkıştırma mekanizması / Oturum altyapısı.
+```text
+                                 ┌───────────────────────────────────────────────┐
+                                 │     ENTERPRISE RULE CREATION METHODOLOGY      │
+                                 └───────────────────────┬───────────────────────┘
+                                                         │
+   ┌─────────────────┬───────────────────┼───────────────┴───┬───────────────────┬───────────────────┐
+   ▼                 ▼                   ▼                   ▼                   ▼                   ▼
+┌──────────────┐ ┌──────────────┐ ┌──────────────┐   ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+│  Ground      │ │ Terminology  │ │ Document     │   │ Caption &    │    │ Scripting &  │    │ Project-     │
+│  Truth Code  │ │ & Language   │ │ Naming &     │   │ Compiler     │    │ Escaping     │    │ Specific     │
+│  Reference   │ │ Regulations  │ │ Hierarchy    │   │ Syntax       │    │ Safety       │    │ System Rules │
+└──────────────┘ └──────────────┘ └──────────────┘   └──────────────┘    └──────────────┘    └──────────────┘
 ```
 
-### Element 3: Banned & Mandatory Terminology Matrix
-Explicitly list prohibited terms (forced translations, AI clichés, or ambiguous jargon) alongside mandatory domain-approved equivalents:
+### 1. Ground Truth Code Reference Check (`codebase_reference_check.md`)
+- **Single Source of Truth:** Source code (C++, C#, Java, Python) is the primary reference. AI agents **MUST NOT** rely solely on templates or memory.
+- **Verification Directives:** Function signatures, member variables, database tables/columns (`Int64`, `DateTime`), protocol headers, and log messages **MUST** be verified directly from source code files.
+- **Semantics & Body Verification:** Agents **MUST NOT** infer function behavior from function names alone. Function bodies **MUST** be inspected (mutexes locked, sub-functions called, logs written).
 
-| Prohibited / Banned Term (Yasaklı) | Mandatory Replacement (Doğru/Zorunlu) | Context / Rationale |
-| :--- | :--- | :--- |
-| **tampon / tamponlama** | **buffer / bufferlama** | Forced translation creates technical ambiguity. |
-| **orkestre etmek** | **yönetmek / koordine etmek** | Overused metaphorical AI cliché. |
-| **kilit / kilitlenmesiz** | **lock / lock-free** | Use native concurrency terminology. |
-| **günlük / hata günlüğü** | **log / log dosyası** | Standard industry convention. |
-| **dijital** | **sayısal** | Official technical standard (sayısal telsiz, sayısal demodülatör). |
+### 2. Terminology & Language Regulations (`documentation_language.md`)
+- **No Parenthetical Translations:** Inline translations like `Header (Başlık)` or `warmup (ısınma)` are **FORBIDDEN** (okunabilirliği düşürür).
+- **Prohibited Words Matrix:** Explicit bans on forced translations or generic metaphoric terms (*"tampon/tamponlama" ➔ use "buffer/bufferlama"*, *"orkestre etmek" ➔ use "yönetmek"*, *"dijital" ➔ use "sayısal"*, *"gösterici" ➔ use "pointer"*).
+- **No Line Numbers in Links:** Links to code files **MUST NOT** include static line numbers (`#L123`) which drift over time.
 
-### Element 4: Hard Negative Constraints (Syntactic & Tooling Restrictions)
-Establish strict operational boundaries preventing unwanted AI behaviors (e.g. no line numbers in code links `#L123`, no unrequested git pushes, no horizontal lines `---` breaking Pandoc Word converters, no mock synthetic data generation without explicit request).
+### 3. Document Naming, Placement & Hierarchy (`document_naming_and_placement.md`)
+- **Naming Pattern:** `[TYPE]_[PROJECT].docx` in upper case (e.g. `YTET_LENS.docx`, `YGO_IRIS.docx`). Status suffixes (`_Nihai`, `_v1.0`) are **FORBIDDEN**.
+- **Placement:** All output documents **MUST** be saved in `[Project]/docs/`. Root-level placement is forbidden.
+- **Header Alignment:** `#` depth MUST equal header numbers (`# 1.`, `## 1.1`, `### 1.1.1`). H1 headers MUST be ALL CAPS.
 
-### Element 5: Ground Truth & Verification Requirements (Single Source of Truth)
-Define explicit verification steps requiring the AI agent to cross-check outputs against authoritative sources (e.g., projenin kaynak kod dosyalarını inceleyerek teyit etmek, veritabanı şemalarıyla birebir eşleştirmek).
+### 4. Caption & Compiler Syntax (`captions.md`)
+- **Table Captions:** Mandatory `%% table_caption: [Description]` on the line directly preceding Markdown tables.
+- **Image Captions:** Mandatory `%% static_image: [Description]` tag for images.
+- **Mermaid Captions:** Mandatory `%% caption: [Description]` inside the first line of Mermaid blocks, with special character escaping (`""`) and mindmap shape rules.
+- **No Horizontal Dividers:** Raw horizontal rules (`---`) in body markdown are **FORBIDDEN** (breaks Pandoc Word compilers).
+
+### 5. Scripting & Escaping Safety (`xml_html_writing_safety.md`)
+- **XML/HTML String Safety:** In Python generators, raw `<Tag>` strings are **FORBIDDEN** to prevent rich-text parser corruption (`[[ORCA_RICH_MD...]]`). Escaping placeholders (`LT`/`GT`) **MUST** be used and replaced prior to file output.
+
+### 6. Project & System-Specific Rules (`ytet_project_rules.md`)
+- **Specific Term Bans:** Generic terms (*"uygulama"*, *"program"*, *"yazılım"*) are **FORBIDDEN**. The official system configuration unit name (e.g., **`İRİS`**) **MUST** be used.
+- **4-Column Test Tables:** Mandatory `| Adım No | Adım Tanımı | Beklenen Sonuç | Doğrulanan Gereksinim(ler) |` table structure.
+- **No Parameter Bullet Items:** Parameter blocks must be unbulleted bold paragraphs (`**ID:** YTET-01-01`).
+
+### 7. Document Content Conformance (`document_content_conformance.md`)
+- **Traceability & Completeness:** Every requirement or item in normative templates MUST be satisfied or explicitly justified as `Uygulanamaz` with evidence. Silent omission is **FORBIDDEN**.
+- **Cross-Document Terminology Alignment:** Unit names, classes, interfaces, and architecture diagrams MUST match 100% identically across document sets (YGO, YTT, YTET, YTER, YUO).
 
 ---
 
-## 3. Rule Synthesis Pipeline for `style-extractor`
+## 3. RFC 2119 Normative Imperatives Summary
 
-When the user asks to "create rules from documents/codebase", `style-extractor` follows this synthesis pipeline:
+Rules created by `style-extractor` MUST encode directives using bold normative keywords:
+- **Turkish:** **ZORUNLUDUR** (MUST), **YASAKTIR** (MUST NOT / FORBIDDEN), **TERCİH EDİLMELİDİR** (SHOULD), **ASLA** (NEVER).
+- **English:** **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, **NEVER**.
 
-1. **Ingestion & Pattern Scanning:** Scans sample documents or codebases for naming patterns, terminology conventions, formatting rules, and technical constraints.
-2. **Normative Abstraction:** Extracts implicit guidelines and elevates them to explicit RFC 2119 mandates.
-3. **Contrast Generation:** Formulates concrete bad vs. good examples based on observed anti-patterns.
-4. **File Packaging:** Emits clean, copy-pasteable Markdown rule files ready for placement in `.gemini/config/rules/` or `.agent/rules/`.
+---
+
+## 4. Synthesis Output Pattern
+
+Rules generated for `.gemini/config/rules/` or `.agent/rules/` follow this structure:
+
+```markdown
+---
+description: [Single-sentence mandate summary]
+trigger: always_on
+---
+
+# [Domain/Rule Title]
+
+## 1. Directives & Mandates
+- AI agents **ZORUNLUDUR / MUST** [directive].
+- AI agents **YASAKTIR / MUST NOT** [prohibited action].
+
+## 2. Terminology & Prohibited Words Matrix
+
+| Yasaklı Terim (Prohibited) | Doğru / Zorunlu Karşılık (Mandatory) | Rationale |
+| :--- | :--- | :--- |
+| `[banned_1]` | `[approved_1]` | [Reason] |
+
+## 3. Do's & Don'ts Examples
+
+### ❌ Yanlış Kullanım (Incorrect):
+> [Bad example]
+
+### ✅ Doğru Kullanım (Correct):
+> [Good example]
+
+## 4. Ground Truth Verification Requirement
+AI agents **MUST** verify all claims directly against source code files or database schemas.
+```
