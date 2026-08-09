@@ -11,7 +11,7 @@ Large Language Models (LLMs) default to homogenized, synthetic tones characteriz
 ### Key Architectural Concepts
 - **Stylometric Extraction:** Systematic decomposition of prose into measurable lexical, syntactic, structural, and rhetorical parameters.
 - **Multi-Lingual Adaptation:** Native handling of agglutinative Turkish morphology, SOV word order (kurallı/devrik cümle), and Turkish LLM clichés alongside English stylometrics.
-- **Imperative Rule Encoding (RFC 2119):** Converting subjective stylistic preferences into unambiguous mandates using normative keywords (**MUST**, **SHOULD**, **MUST NOT**, **NEVER** / **ZORUNLUDUR**, **YASAKTIR**).
+- **Direct Imperative Rule Encoding:** Converting subjective stylistic preferences into unambiguous mandates using clear directives and contrast examples.
 
 ---
 
@@ -19,7 +19,7 @@ Large Language Models (LLMs) default to homogenized, synthetic tones characteriz
 
 ### 2.1 Lexical & Morphological Profile
 - **English:** Type-Token Ratio (TTR), jargon density, preferred discourse markers (*"Conversely,"*, *"That said,"*).
-- **Turkish (Türkçe):** Suffix density (`-dir/-dir`, `-maktadır/-mektedir`, `-acağı/eceği`), modal suffixes (`-miş` vs `-di`), discourse markers (*"Nitekim,"*, *"Öte yandan,"*, *"Dolayısıyla,"*, *"Nihayetinde,"*).
+- **Turkish (Türkçe):** Suffix density (`-dir/-dir`, `-mektedir/-maktadır`, `-acağı/eceği`), modal suffixes (`-miş` vs `-di`), discourse markers (*"Nitekim,"*, *"Öte yandan,"*, *"Dolayısıyla,"*, *"Nihayetinde,"*).
 
 ### 2.2 Syntactic & Structural Architecture
 - **English:** Active vs. passive voice ratios, clause complexity, sentence length distribution.

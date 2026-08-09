@@ -1,6 +1,6 @@
 ---
 name: style-extractor
-description: Analyzes user-provided writing samples, codebase conventions, or manually created rules (in English or Turkish) to extract stylometric signatures, authorial voice patterns, and general-purpose rule discovery patterns. Synthesizes deterministic Antigravity rule files (.gemini/config/rules/*.md or .agent/rules/*.md) and custom SKILL.md style guides using RFC 2119 imperative rules, Do's/Don'ts tables, and terminology matrices. Activate whenever the user asks to learn their writing style, extract style rules, discover rule patterns from example documents/codebases, or generate custom authoring rules.
+description: Analyzes user-provided writing samples, codebase conventions, or manually created rules (in English or Turkish) to extract stylometric signatures, authorial voice patterns, and rule discovery patterns. Synthesizes deterministic Antigravity rule files (.gemini/config/rules/*.md or .agent/rules/*.md) and custom SKILL.md style guides using clear imperative directives, Do's/Don'ts tables, and terminology matrices. Activate whenever the user asks to learn their writing style, extract style rules, discover rule patterns from example documents/codebases, or generate custom authoring rules.
 ---
 
 # Style Extractor & Rule Pattern Discovery Skill (English & Turkish 🇹🇷)
@@ -22,7 +22,7 @@ This skill supports two primary output generation workflows:
                 ▼                                                     ▼
     [WORKFLOW 1: Style & Voice Cloning]                 [WORKFLOW 2: Rule Pattern Discovery]
     Outputs: User Voice SKILL.md                        Outputs: .gemini/config/rules/*.md
-    Focus: 6D Stylometrics & Cadence                    Focus: Pattern Discovery, RFC 2119 Directives,
+    Focus: 6D Stylometrics & Cadence                    Focus: Pattern Discovery, Directives,
                                                                Terminology Maps & Ground Truth Verification
 ```
 
@@ -34,7 +34,7 @@ When analyzing manually created rules or sample documents to formulate new gener
 
 ### 1. Absolute Boundary Directives (Hard Constraints)
 *   **Discovery Method:** Scans manual rules for non-negotiable mandates, file placement rules, or workflow restrictions.
-*   **Formulation:** Converts patterns into explicit RFC 2119 imperatives (**MUST** / **ZORUNLUDUR** or **MUST NOT** / **YASAKTIR**).
+*   **Formulation:** Converts patterns into clear, direct imperative statements (*"X is mandatory"*, *"Y is forbidden"*).
 
 ### 2. Terminology Preference & Synonym Normalization Maps
 *   **Discovery Method:** Identifies terms the author consistently replaces, bans, or prefers over default LLM vocabulary.
@@ -42,7 +42,7 @@ When analyzing manually created rules or sample documents to formulate new gener
 
 ### 3. Negative Constraints & Anti-Pattern Flags
 *   **Discovery Method:** Identifies prohibitions against default AI tendencies (e.g. over-explanation, parenthetical translations, fluff intros, unrequested git actions, static line numbers).
-*   **Formulation:** Formulates explicit **MUST NOT** / **NEVER** / **YASAKTIR** negative directives paired with concrete "Do's and Don'ts" (Yanlış vs. Doğru) contrast examples.
+*   **Formulation:** Formulates explicit negative directives paired with concrete "Do's and Don'ts" (Yanlış vs. Doğru) contrast examples.
 
 ### 4. Structural & Formatting Signatures
 *   **Discovery Method:** Analyzes document layouts for recurring markup tags, custom annotations, specific table structures, or header capitalization rules.
@@ -57,14 +57,14 @@ When analyzing manually created rules or sample documents to formulate new gener
 ## 🎛️ Language Flags & Modes
 
 *   **`--auto`** *(Default)*: Automatically detects sample language (English, Turkish, or Bilingual) and applies matching analysis.
-*   **`--tr` / `--turkish`**: Applies Turkish morphosyntactic analysis, Turkish RFC 2119 terms (**ZORUNLUDUR**, **YASAKTIR**), and Turkish Anti-AI Purge Matrix.
+*   **`--tr` / `--turkish`**: Applies Turkish morphosyntactic analysis, Turkish directives (*Zorunlu / Yasak / Tercih Edilen*), and Turkish Anti-AI Purge Matrix.
 *   **`--en` / `--english`**: Applies English stylometrics and English Anti-AI Purge Matrix.
 
 ---
 
 ## 📜 Rule File Synthesis Format
 
-Rules generated for `.gemini/config/rules/` or `.agent/rules/` follow this domain-agnostic structure:
+Rules generated for `.gemini/config/rules/` or `.agent/rules/` follow a flexible, domain-agnostic structure:
 
 ```markdown
 ---
@@ -77,8 +77,8 @@ trigger: always_on  # Options: always_on | manual
 [Brief statement of scope and operational intent.]
 
 ## 1. Mandatory Directives
-- AI agents **MUST / ZORUNLUDUR** [core directive].
-- AI agents **MUST NOT / YASAKTIR** [prohibited action].
+- [Core directive statement].
+- [Prohibited action statement].
 
 ## 2. Terminology & Prohibited Words Matrix
 
@@ -95,7 +95,7 @@ trigger: always_on  # Options: always_on | manual
 > [Example demonstrating the compliant pattern]
 
 ## 4. Ground Truth Verification Requirement
-AI agents **MUST** verify all generated claims against primary source files before completing the task.
+[Directive requiring empirical verification against primary source files before completing the task.]
 ```
 
 ---

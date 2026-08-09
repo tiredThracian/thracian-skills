@@ -1,12 +1,12 @@
 # Rule Pattern Discovery & Extraction Meta-Methodology
 
-This guide defines the meta-methodology for analyzing manually created rules or sample documents to discover, extract, and formulate new reusable workspace rules (`.gemini/config/rules/*.md` or `.agent/rules/*.md`) without hardcoding project-specific details.
+This guide defines the meta-methodology for analyzing manually created rules or sample documents to discover, extract, and formulate new reusable workspace rules (`.gemini/config/rules/*.md` or `.agent/rules/*.md`) without hardcoding rigid templates.
 
 ---
 
 ## 🎯 Architectural Goal
 
-The objective of rule pattern discovery is to analyze an author's or organization's manually written rules/samples and identify **underlying structural patterns, boundary constraints, and terminology preferences**, elevating them into clean, general-purpose RFC 2119 rules.
+The objective of rule pattern discovery is to analyze an author's or organization's manually written rules/samples and identify **underlying structural patterns, boundary constraints, and terminology preferences**, elevating them into clean, general-purpose rules.
 
 ```text
                ┌────────────────────────────────────────────────────────┐
@@ -16,7 +16,7 @@ The objective of rule pattern discovery is to analyze an author's or organizatio
                 ┌──────────────────────────┴──────────────────────────┐
                 ▼                                                     ▼
    [PATTERN RECOGNITION & ANALYSIS]                  [GENERALIZED RULE FORMULATION]
-   - Scan for Absolute Constraints                   - Convert to RFC 2119 Mandates
+   - Scan for Absolute Constraints                   - Convert to Direct Imperatives
    - Detect Anti-Patterns & Prohibitions             - Build Terminology Mapping Tables
    - Identify Formatting Signatures                  - Formulate Contrast (Do/Don't) Examples
    - Extract Verification Criteria                   - Generate Standard Rule Files
@@ -30,7 +30,7 @@ When inspecting manually created rules or sample documents, look for these 5 fou
 
 ### Pattern 1: Absolute Boundary Directives (Hard Constraints)
 *   **How to Discover:** Search manual samples for non-negotiable directives, strict placement requirements, or workflow limits (e.g., *"always save in X"*, *"never generate Y unless explicitly requested"*, *"must match Z 100%"*).
-*   **Rule Formulation Method:** Translate into high-priority RFC 2119 imperatives (**MUST** / **ZORUNLUDUR** or **MUST NOT** / **YASAKTIR**). State the exact constraint and why it matters.
+*   **Rule Formulation Method:** Translate into direct, clear imperative statements (*"X is required"*, *"Y is prohibited"*). State the exact constraint and why it matters.
 
 ### Pattern 2: Terminology Preference & Synonym Normalization Maps
 *   **How to Discover:** Compare the author's chosen terms against generic LLM defaults or literal translations. Identify terms the author consistently replaces, bans, or prefers.
@@ -42,15 +42,15 @@ When inspecting manually created rules or sample documents, look for these 5 fou
 
 ### Pattern 3: Negative Constraints & Anti-Pattern Flags
 *   **How to Discover:** Look for explicit prohibitions against default LLM tendencies (e.g. over-explanation, parenthetical translations, fluff intros, unrequested git actions, static line numbers).
-*   **Rule Formulation Method:** Formulate explicit **MUST NOT** / **NEVER** / **YASAKTIR** negative directives paired with concrete "Do's and Don'ts" (Yanlış vs. Doğru) contrast examples.
+*   **Rule Formulation Method:** Formulate explicit negative directives paired with concrete "Do's and Don'ts" (Yanlış vs. Doğru) contrast examples.
 
 ### Pattern 4: Structural & Formatting Signatures
-*   **How to Discover:** Analyze document layouts for recurring markup tags, specific table column layouts, header capitalization rules, paragraph density caps, or custom annotation syntax.
+*   **How to Discover:** Analyze document layouts for recurring markup tags, custom annotations, specific table column layouts, header capitalization rules, paragraph density caps, or custom annotation syntax.
 *   **Rule Formulation Method:** Document the exact syntax pattern and header/paragraph rules that the AI must replicate in all generated text.
 
 ### Pattern 5: Ground Truth & Verification Requirements
 *   **How to Discover:** Search for instructions requiring the AI agent to verify claims against authoritative primary sources (e.g. source code, database schemas, hardware specs) rather than relying on memory or templates.
-*   **Rule Formulation Method:** Include a mandatory **Verification Directives** section enforcing empirical cross-checking before declaring compliance.
+*   **Rule Formulation Method:** Include a clear **Verification Directives** section enforcing empirical cross-checking before declaring compliance.
 
 ---
 
@@ -69,8 +69,8 @@ trigger: always_on  # Options: always_on | manual
 [Brief statement of scope and operational intent.]
 
 ## 1. Mandatory Directives
-- AI agents **MUST / ZORUNLUDUR** [core directive].
-- AI agents **MUST NOT / YASAKTIR** [prohibited action].
+- [Core directive statement].
+- [Prohibited action statement].
 
 ## 2. Terminology & Prohibited Words Matrix
 
@@ -87,5 +87,5 @@ trigger: always_on  # Options: always_on | manual
 > [Example demonstrating the compliant pattern]
 
 ## 4. Ground Truth Verification Requirement
-AI agents **MUST** verify all generated claims against primary source files before completing the task.
+[Directive requiring empirical verification against primary source files before completing the task.]
 ```
