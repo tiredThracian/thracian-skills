@@ -7,16 +7,30 @@ Bu rapor, Google Antigravity için tasarlanan **Thracian Skills** deposunda yap�
 ## 1. Mimari Yapı: Thracian Skills Koleksiyonu (Multi-Skill Monorepo)
 Proje, modüler ve genel amaçlı bir **Thracian Skills** koleksiyonu halinde yapılandırılmıştır:
 *   **Klasör Yapısı:** Tüm yetenekler `skills/` dizini altında bağımsız klasörler halinde barındırılır:
+    *   `skills/md-pdf/`: Çift Çıktılı Markdown & Yayın Kalitesinde PDF Üretim Yeteneği.
     *   `skills/style-extractor/`: Yazım Tarzı Çıkarma & Antigravity Kural Üretim Yeteneği.
     *   `skills/gemini-spark/`: Gemini Spark Playwright otomasyon motoru.
 *   **Esnek Kurulum Aracı (`setup.bat`):**
     *   `setup.bat` veya `setup.bat all`: Depodaki tüm yetenekleri otomatik kurar.
-    *   `setup.bat <yetenek_adi>`: Sadece belirtilen yeteneği (ör. `setup.bat style-extractor`) hedef Antigravity dizinine (`.gemini/config/skills/<yetenek_adi>`) kurar.
+    *   `setup.bat <yetenek_adi>`: Sadece belirtilen yeteneği (ör. `setup.bat md-pdf`) hedef Antigravity dizinine (`.gemini/config/skills/<yetenek_adi>`) kurar.
     *   `setup.bat list`: Depoda mevcut tüm yetenekleri listeler.
 
 ---
 
-## 2. Yazım Tarzı Çıkarma Yeteneği (`skills/style-extractor`)
+## 2. Çift Çıktılı Markdown & PDF Üretim Yeteneği (`skills/md-pdf`)
+*   **Çift Biçimli Çıktı Mimarisi:** Üretilen her rapor, teknik doküman, analiz ve özet hem saf GitHub Markdown (`.md`) hem de baskıya hazır, yüksek çözünürlüklü PDF (`.pdf`) olarak anında üretilir.
+*   **Görsel & Tipografik Standartlar:**
+    *   Modern tipografi (Inter, JetBrains Mono) ve CSS Grid/Flexbox tabanlı sayfa düzeni.
+    *   Pygments ile tam kod sözdizimi renklendirmesi (Syntax Highlighting).
+    *   Zebra desenli, çerçeveli ve kırılma korumalı tablolar.
+    *   GitHub uyumlu bilgi ve uyarı kutuları (`[!NOTE]`, `[!TIP]`, `[!IMPORTANT]`, `[!WARNING]`, `[!CAUTION]`).
+    *   Otomatik sayfa numaralandırması (`Page X of Y`), sayfa başlığı/altlığı ve `<!-- pagebreak -->` sayfa sonu desteği.
+*   **Çoklu Tema Desteği:** `modern` (mavi), `executive` (petrol mavisi/antrasit), `academic` (indigo), `minimal` (monokrom).
+*   **Dönüştürme Motoru:** `skills/md-pdf/scripts/convert.py` (MarkdownIt + Pygments + Playwright/Chromium/Edge).
+
+---
+
+## 3. Yazım Tarzı Çıkarma Yeteneği (`skills/style-extractor`)
 *   **Örnek Doküman Analizi:** Kullanıcının sunduğu makale, rapor, e-posta veya kod yorumlarından yazarın özgün sesini ve üslubunu çıkarır.
 *   **6 Boyutlu Stil Analizi:** Leksikal (kelime seçimi), Sözdizimsel (cümle yapısı), Noktalama/Biçimlendirme, Ton/Kadans, Retorik Yaklaşımlar ve Yapay Zeka Kalıplarını Temizleme (Anti-AI Purge Matrix).
 *   **Kural Üretim Hedefleri:**
@@ -26,7 +40,7 @@ Proje, modüler ve genel amaçlı bir **Thracian Skills** koleksiyonu halinde ya
 
 ---
 
-## 3. Gemini Spark Yeteneği Özellikleri (`skills/gemini-spark`)
+## 4. Gemini Spark Yeteneği Özellikleri (`skills/gemini-spark`)
 *   **Çoklu Hesap Desteği (`--account`):** Profil izoleli çalışma (`work`, `personal`, `research`).
 *   **CDP Paralel Sekme Desteği (`--cdp`):** Eşzamanlı paralel sekmeler.
 *   **Birebir Yanıt Modu (`verbatim`):** Yanıtların tam kopyası.

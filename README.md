@@ -17,6 +17,10 @@ thracian-skills/
 │   │   └── scripts/
 │   │       ├── index.js
 │   │       └── package.json
+│   ├── md-pdf/                    <-- Dual Output Markdown & Publication PDF Publisher
+│   │   ├── SKILL.md
+│   │   └── scripts/
+│   │       └── convert.py
 │   ├── style-extractor/           <-- Writing Style Extraction & Voice Cloning Skill
 │   │   ├── SKILL.md
 │   │   └── references/
@@ -33,6 +37,7 @@ thracian-skills/
 
 | Skill Name | Description | Path |
 | :--- | :--- | :--- |
+| **`md-pdf`** | Authors, formats, and publishes outputs simultaneously as clean GitHub-Flavored Markdown (`.md`) and high-resolution, print-ready PDF (`.pdf`) documents. Features modern typography, Pygments syntax highlighting, responsive tables, GitHub-style callouts (`[!NOTE]`, `[!TIP]`, `[!WARNING]`), custom themes, and automatic page numbering. | [`skills/md-pdf/SKILL.md`](file:///skills/md-pdf/SKILL.md) |
 | **`style-extractor`** | Analyzes user-provided writing samples, articles, or documents to extract 6-dimensional stylometric signatures (lexical, syntactic, punctuation, tone, rhetorical, Anti-AI purge matrix). Synthesizes reusable Antigravity Markdown rule files (`.gemini/config/rules/*.md`) or custom skill style guides (`SKILL.md`). | [`skills/style-extractor/SKILL.md`](file:///skills/style-extractor/SKILL.md) |
 | **`gemini-spark`** | Advanced Playwright automation engine for Google Gemini Spark (multi-turn context, multi-account support, CDP parallel execution, verbatim responses, batch deletion, workspace file exports). | [`skills/gemini-spark/SKILL.md`](file:///skills/gemini-spark/SKILL.md) |
 
@@ -53,8 +58,9 @@ cd thracian-skills
     ```cmd
     setup.bat
     ```
-*   **Install a SINGLE Skill (e.g., `style-extractor` or `gemini-spark`)**:
+*   **Install a SINGLE Skill (e.g., `md-pdf`, `style-extractor`, or `gemini-spark`)**:
     ```cmd
+    setup.bat md-pdf
     setup.bat style-extractor
     setup.bat gemini-spark
     ```
@@ -70,6 +76,9 @@ cd thracian-skills
 To install only a specific skill manually, copy its folder from `skills/<skill_name>` to your local Antigravity config directory:
 
 ```powershell
+# Copy MD-PDF Publisher skill
+Copy-Item -Path "skills/md-pdf" -Destination "$env:USERPROFILE\.gemini\config\skills\md-pdf" -Recurse -Force
+
 # Copy Style Extractor skill
 Copy-Item -Path "skills/style-extractor" -Destination "$env:USERPROFILE\.gemini\config\skills\style-extractor" -Recurse -Force
 
