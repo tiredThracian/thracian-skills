@@ -12,10 +12,6 @@
 ```text
 thracian-skills/
 ├── skills/
-│   ├── eli5/                      <-- Executive Engineering & Grant ELI5 Skill
-│   │   ├── SKILL.md
-│   │   └── references/
-│   │       └── EXECUTIVE_ENGINEERING_FRAMEWORK.md
 │   ├── gemini-spark/              <-- Gemini Spark Automation Skill
 │   │   ├── SKILL.md
 │   │   └── scripts/
@@ -38,7 +34,6 @@ thracian-skills/
 | Skill Name | Description | Path |
 | :--- | :--- | :--- |
 | **`style-extractor`** | Analyzes user-provided writing samples, articles, or documents to extract 6-dimensional stylometric signatures (lexical, syntactic, punctuation, tone, rhetorical, Anti-AI purge matrix). Synthesizes reusable Antigravity Markdown rule files (`.gemini/config/rules/*.md`) or custom skill style guides (`SKILL.md`). | [`skills/style-extractor/SKILL.md`](file:///skills/style-extractor/SKILL.md) |
-| **`eli5`** | Executive-level engineering simplification skill for Senior Directors, R&D Managers, and Innovation Leaders. Translates complex papers, code snippets, or one-sentence ideas for **Grant Proposals** (`--grant`), **Executive Board Pitches** (`--pitch`), and **C-Suite Briefings** (`--executive`). | [`skills/eli5/SKILL.md`](file:///skills/eli5/SKILL.md) |
 | **`gemini-spark`** | Advanced Playwright automation engine for Google Gemini Spark (multi-turn context, multi-account support, CDP parallel execution, verbatim responses, batch deletion, workspace file exports). | [`skills/gemini-spark/SKILL.md`](file:///skills/gemini-spark/SKILL.md) |
 
 ---
@@ -58,10 +53,9 @@ cd thracian-skills
     ```cmd
     setup.bat
     ```
-*   **Install a SINGLE Skill (e.g., `style-extractor`, `eli5`, or `gemini-spark`)**:
+*   **Install a SINGLE Skill (e.g., `style-extractor` or `gemini-spark`)**:
     ```cmd
     setup.bat style-extractor
-    setup.bat eli5
     setup.bat gemini-spark
     ```
 *   **List All Available Skills**:
@@ -71,16 +65,13 @@ cd thracian-skills
 
 ---
 
-### 2. Manual / Selective Installation
+## 2. Manual / Selective Installation
 
 To install only a specific skill manually, copy its folder from `skills/<skill_name>` to your local Antigravity config directory:
 
 ```powershell
 # Copy Style Extractor skill
 Copy-Item -Path "skills/style-extractor" -Destination "$env:USERPROFILE\.gemini\config\skills\style-extractor" -Recurse -Force
-
-# Copy Executive Engineering ELI5 skill
-Copy-Item -Path "skills/eli5" -Destination "$env:USERPROFILE\.gemini\config\skills\eli5" -Recurse -Force
 
 # Copy Gemini Spark skill
 Copy-Item -Path "skills/gemini-spark" -Destination "$env:USERPROFILE\.gemini\config\skills\gemini-spark" -Recurse -Force
