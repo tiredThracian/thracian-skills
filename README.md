@@ -25,6 +25,8 @@ thracian-skills/
 │   │   ├── SKILL.md
 │   │   └── references/
 │   │       └── STYLOMETRIC_RESEARCH_GUIDE.md
+│   ├── triad-agent-workflow/      <-- Configurable Multi-Agent Pipeline (Triad, Dev-Tester, Dev-Auditor)
+│   │   └── SKILL.md
 │   └── [future-skills...]/        <-- Additional skills added over time
 ├── setup.bat                      <-- Installer (All skills vs Single skill)
 ├── DEVELOPMENT_REPORT.md
@@ -37,6 +39,7 @@ thracian-skills/
 
 | Skill Name | Description | Path |
 | :--- | :--- | :--- |
+| **`triad-agent-workflow`** | Universal multi-agent software engineering execution pipeline with configurable modes: **Full Triad** (`Developer -> Tester -> Auditor`, default), **Dev+Tester** (`Developer -> Tester`), or **Dev+Auditor** (`Developer -> Auditor`). Enforces strict role separation across any stack. | [`skills/triad-agent-workflow/SKILL.md`](file:///skills/triad-agent-workflow/SKILL.md) |
 | **`md-pdf`** | Authors, formats, and publishes outputs simultaneously as clean GitHub-Flavored Markdown (`.md`) and high-resolution, print-ready PDF (`.pdf`) documents. Features modern typography, Pygments syntax highlighting, responsive tables, GitHub-style callouts (`[!NOTE]`, `[!TIP]`, `[!WARNING]`), custom themes, and automatic page numbering. | [`skills/md-pdf/SKILL.md`](file:///skills/md-pdf/SKILL.md) |
 | **`style-extractor`** | Analyzes user-provided writing samples, articles, or documents to extract 6-dimensional stylometric signatures (lexical, syntactic, punctuation, tone, rhetorical, Anti-AI purge matrix). Synthesizes reusable Antigravity Markdown rule files (`.gemini/config/rules/*.md`) or custom skill style guides (`SKILL.md`). | [`skills/style-extractor/SKILL.md`](file:///skills/style-extractor/SKILL.md) |
 | **`gemini-spark`** | Advanced Playwright automation engine for Google Gemini Spark (multi-turn context, multi-account support, CDP parallel execution, verbatim responses, batch deletion, workspace file exports). | [`skills/gemini-spark/SKILL.md`](file:///skills/gemini-spark/SKILL.md) |

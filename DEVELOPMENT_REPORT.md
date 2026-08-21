@@ -7,6 +7,7 @@ Bu rapor, Google Antigravity için tasarlanan **Thracian Skills** deposunda yap�
 ## 1. Mimari Yapı: Thracian Skills Koleksiyonu (Multi-Skill Monorepo)
 Proje, modüler ve genel amaçlı bir **Thracian Skills** koleksiyonu halinde yapılandırılmıştır:
 *   **Klasör Yapısı:** Tüm yetenekler `skills/` dizini altında bağımsız klasörler halinde barındırılır:
+    *   `skills/triad-agent-workflow/`: Çoklu Ajan Yazılım Geliştirme Hattı (Triad, Dev-Tester, Dev-Auditor).
     *   `skills/md-pdf/`: Çift Çıktılı Markdown & Yayın Kalitesinde PDF Üretim Yeteneği.
     *   `skills/style-extractor/`: Yazım Tarzı Çıkarma & Antigravity Kural Üretim Yeteneği.
     *   `skills/gemini-spark/`: Gemini Spark Playwright otomasyon motoru.
@@ -47,3 +48,12 @@ Proje, modüler ve genel amaçlı bir **Thracian Skills** koleksiyonu halinde ya
 *   **Başlık Yeniden Adlandırma (`rename`):** Sohbet ve görev kartı başlıklarını güncelleme.
 *   **Toplu Silme (`delete`):** Çoklu ID silme ve güncel liste çıktısı.
 *   **Workspace Exporters:** Docs (.txt), Sheets (.xlsx), Slides (.pptx) ve görselleri indirme.
+
+---
+
+## 5. Çoklu Ajan Mühendislik Hattı (`skills/triad-agent-workflow`)
+*   **Modüler Çalışma Modları:**
+    1.  **`triad` / Full (Varsayılan):** `Developer -> Tester -> Auditor` (Kapsamlı 3 aşamalı üretim standardı).
+    2.  **`dev-tester` (Dev + QA):** `Developer -> Tester` (Hızlı özellik ve test geliştirme, audit adımı atlanır).
+    3.  **`dev-auditor` (Dev + Audit):** `Developer -> Auditor` (Refactor, güvenlik ve stil denetimi, birim test yazımı atlanır).
+*   **Kesintisiz El Sıkışma (Handoff):** Her alt ajanın ürettiği dosya ve çıktılar bir sonraki aşamaya otomatik aktarılır.
