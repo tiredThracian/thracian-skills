@@ -27,6 +27,10 @@ thracian-skills/
 │   │       └── STYLOMETRIC_RESEARCH_GUIDE.md
 │   ├── triad-agent-workflow/      <-- Configurable Multi-Agent Pipeline (Triad, Dev-Tester, Dev-Auditor)
 │   │   └── SKILL.md
+│   ├── dev-auto/                  <-- Autonomous Pipeline Dispatcher (Auto-selects 2-agent or 3-agent)
+│   │   └── SKILL.md
+│   ├── triad-auto/                <-- Autonomous Pipeline Dispatcher Alias
+│   │   └── SKILL.md
 │   ├── triad-dev-tester/          <-- Developer -> Tester 2-Agent Shortcut
 │   │   └── SKILL.md
 │   ├── triad-dev-auditor/         <-- Developer -> Auditor 2-Agent Shortcut
@@ -47,6 +51,7 @@ thracian-skills/
 
 | Skill Name | Description | Path |
 | :--- | :--- | :--- |
+| **`dev-auto`** / **`triad-auto`** | **Autonomous Pipeline Dispatcher:** Evaluates task requirements (documentation, refactoring, new feature, or critical system) and automatically routes to the optimal 2-agent (`dev-auditor`, `dev-tester`) or 3-agent (`triad`) workflow. | [`skills/dev-auto/SKILL.md`](file:///skills/dev-auto/SKILL.md) |
 | **`triad-agent-workflow`** | Universal multi-agent software engineering execution pipeline with configurable modes: **Full Triad** (`Developer -> Tester -> Auditor`, default), **Dev+Tester** (`Developer -> Tester`), or **Dev+Auditor** (`Developer -> Auditor`). | [`skills/triad-agent-workflow/SKILL.md`](file:///skills/triad-agent-workflow/SKILL.md) |
 | **`triad-dev-tester`** / **`dev-tester`** | Fast 2-agent pipeline executing **Developer ➔ Tester**. Implements code and runs native test runners to guarantee 100% test coverage. | [`skills/triad-dev-tester/SKILL.md`](file:///skills/triad-dev-tester/SKILL.md) |
 | **`triad-dev-auditor`** / **`dev-auditor`** | Fast 2-agent pipeline executing **Developer ➔ Auditor**. Implements/refactors code and runs static analysis, linters, and security quality gating. | [`skills/triad-dev-auditor/SKILL.md`](file:///skills/triad-dev-auditor/SKILL.md) |
